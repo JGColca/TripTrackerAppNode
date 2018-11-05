@@ -10,6 +10,7 @@ app.engine('mustache', mustacheExpress())
 app.set('views', './views')
 app.set('view engine', 'mustache')
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static('images'))
 
 app.get('/', function(req, res) {
     
@@ -23,6 +24,7 @@ app.post('/add-trip', function (req, res) {
     console.log(trip)
 
    trips.push(trip)
+   
    res.redirect('/')
    
 
