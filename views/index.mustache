@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+<body>
+    <form action="/add-trip" method="POST">
+
+        Trip Name: <input type="textbox" name="tripName"  placeholder="Trip Name"/>
+        Trip Images: <input type="textbox" name="tripImage"  placeholder="Trip Image"/>
+        Trip Departure Date: <input type="date" name="tripDeparture"  placeholder="Trip Departure Date"/>
+        Trip Return Date: <input type="date" name="tripReturn"  placeholder="Trip Return Date"/>
+        <input type="submit" value="Add Trip"/>
+    
+    </form>
+    
+<ul>
+    {{#trips}}
+       
+            <li>
+             <form action="/delete-trip" method="POST">
+            {{tripName}}
+            <a href={{tripImage}}>{{tripName}} Images</a>
+            {{tripDeparture}}
+            {{tripReturn}}
+            <input type="hidden" name="tripName" value="{{tripName}}"/>
+            <input type="hidden" name="tripImage" value="{{tripImage}}"/>
+            <input type="hidden" name="tripDeparture" value="{{tripDeparture}}"/>
+            <input type="hidden" name="tripReturn" value="{{tripReturn}}"/>
+            <input type="submit" value="Remove"/>
+            </form>
+            </li>
+       
+    {{/trips}}
+</ul>
+
+</body>
+</html>
